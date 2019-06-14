@@ -1,1 +1,3 @@
-Caffe python multiple data layer.
+Caffe 多任务HDF5数据层。
+不受限于任务数量和数据维度形状。
+经过简单地修改就可以适用于其它数据。

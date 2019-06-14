@@ -116,40 +116,6 @@ class BatchIterator(object):
         self.len_example = len(example['data'])
         example.close()
 
-        # Before running this statement , you should set the system's max open files big enough first, or error "too many open files" will occur. 
-        # You need to edit /etc/security/limits.conf and add blow two lines at the end of the file:
-        # your-user-name                soft   nofile           409600
-        # your-user-name                hard   nofile           409600
-        # Remember Don't use root user.
-        # self.datalist = [h5py.File(f) for f in filelist]        
-
-
-        # self.datalist = []
-        # f = open(source, "r")
-
-        # # read first line for shape check
-        # line1 = f.readline().strip()
-        # example = h5py.File(line1)
-        # assert data_shape == example['data'][0].shape, "data_shape:{} != example['data'][0].shape:{}".format(data_shape , example['data'][0].shape)
-        # assert label_shape == example['label'][0].shape, "label_shape:{} != example['label'][0].shape:{}".format(label_shape, example['label'][0].shape)
-
-        # self.len_example = len(example['data'])
-        # self.datalist.append(example)
-        # for i,line in enumerate(f):
-        #     self.datalist.append(h5py.File(line.strip()))
-        #     print("{}, sizeof datalist:{}".format(i, sys.getsizeof(self.datalist)))
-        #     gc.collect()
-
-        # f.close()
-
-        # self.file_num = len(filelist)
-        # self.datalist = np.empty(self.file_num, dtype=h5py.File)
-        # for i,f in enumerate(filelist):
-        #     self.datalist[i] = h5py.File(f)
-        #     print("{}, sizeof datalist:{}".format(i, sys.getsizeof(self.datalist)))
-        #     gc.collect()
-
-
         self.file_num = len(self.datalist)
         self.data_shape = data_shape
         self.label_shape = label_shape
